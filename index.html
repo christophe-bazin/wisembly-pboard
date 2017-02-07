@@ -9,14 +9,16 @@
 
 		<link rel="stylesheet" href="css/tapestry.css" type="text/css">
 		<link rel="stylesheet" href="css/main.css" type="text/css">
+<!-- 		<link rel="stylesheet" href="/bower_components/tablesorter/dist/css/theme.default.min.css" type="text/css"> -->
 
 	</head>
 	<body>
 
-		<table class="Table" id="trelloDatas">
+		<table class="Table tablesorter" id="trelloDatas">
 			<thead class="Table-head">
 				<tr class="Table-row">
 					<th class="Table-cell Table-cell--header u-tal">Name</th>
+					<th class="Table-cell Table-cell--header">Date</th>
 					<th class="Table-cell Table-cell--header">Url</th>
 					<th class="Table-cell Table-cell--header u-tal">Tag</th>
 					<th class="Table-cell Table-cell--header">Votes</th>
@@ -28,6 +30,7 @@
 		</table>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="/bower_components/tablesorter/dist/js/jquery.tablesorter.js"></script>
 
 		<script src="js/main.js"></script>
 	</body>
