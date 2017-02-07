@@ -1,0 +1,17 @@
+{
+  "name": "wisembly-pboard",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "tablesorter": "jquery.tablesorter#^2.28.5"
+  }
+}
