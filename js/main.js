@@ -31,12 +31,16 @@ function drawRow(rowData) {
 		return label.name
 	});
 
+	var filteredLabels = labelsNames.filter(function (label) {
+		return label === ('Improvement');
+	})
+
 	var row = $("<tr class='Table-row'/>")
 	$("#trelloDatas").append(row);
 	row.append($("<td class='Table-cell u-tal'>" + rowData.name + "</td>"));
 	row.append($("<td class='Table-cell u-tal'>" + rowData.dateLastActivity + "</td>"));
 	row.append($("<td class='Table-cell'><a href="+ rowData.url +" target=_blank>" + rowData.shortLink + "</a></td>"));
-	row.append($("<td class='Table-cell u-tal'>" + Object.values(labelsNames) +"</td>"));
+	row.append($("<td class='Table-cell u-tal'><span>" + labelsNames +"</span></td>"));
 	row.append($("<td class='Table-cell'>" + Object.keys(rowData.idMembersVoted).length +"</td>"));
 
 	$(function(){
