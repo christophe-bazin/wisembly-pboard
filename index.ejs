@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="./css/tapestry.css" type="text/css">
+		<link rel="stylesheet" href="./css/main.css" type="text/css">
+
+	</head>
+	<body>
+
+		<table class="Table tablesorter" id="trelloDatas">
+			<thead class="Table-head">
+				<tr class="Table-row">
+					<th class="Table-cell Table-cell--header u-tal">Name</th>
+					<th class="Table-cell Table-cell--header">Date</th>
+					<th class="Table-cell Table-cell--header">Url</th>
+					<th class="Table-cell Table-cell--header u-tal">Tag</th>
+					<th class="Table-cell Table-cell--header">Votes</th>
+				</tr>
+			</thead>
+			<tbody class="Table-body">
+				<% data.forEach(function(rowData){ %>
+					<td class='Table-cell u-tal'><%= rowData.name %></td>
+					<td class='Table-cell u-tal'><%= rowData.dateLastActivity %></td>
+					<td class='Table-cell'></a></td>
+					<td class='Table-cell u-tal'><%= labelsNames %></td>
+					<td class='Table-cell'><%= Object.keys(rowData.idMembersVoted).length %></td>
+  				<% }); %>
+			</tbody>
+		</table>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="bower_components/tablesorter/dist/js/jquery.tablesorter.js"></script>
+
+		<script src="js/main.js"></script>
+	</body>
+</html>

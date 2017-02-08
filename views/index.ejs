@@ -24,13 +24,18 @@
 				</tr>
 			</thead>
 			<tbody class="Table-body">
-
+				<% data.forEach(function(rowData){ %>
+				<tr>
+					<td class='Table-cell u-tal'><%= rowData.name %></td>
+					<td class='Table-cell u-tal'><%= rowData.dateLastActivity %></td>
+					<td class='Table-cell u-tal'><%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label === ('Improvement') || label === ('Feature'); }) %></td>
+					<td class='Table-cell'><%= Object.keys(rowData.idMembersVoted).length %></td>
+				</tr>
+  				<% }); %>
 			</tbody>
 		</table>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="bower_components/tablesorter/dist/js/jquery.tablesorter.js"></script>
-
-		<script src="js/main.js"></script>
 	</body>
 </html>
