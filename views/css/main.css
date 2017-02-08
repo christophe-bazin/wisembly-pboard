@@ -1,0 +1,10 @@
+.wisembly-pboard {
+	max-width: 1200px;
+	margin: auto;
+	padding: 20px;
+}
+
+thead {
+	background-color: #a1a9ae;
+	color: #fff;
+}

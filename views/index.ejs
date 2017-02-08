@@ -13,29 +13,37 @@
 	</head>
 	<body>
 
-		<table class="Table tablesorter" id="trelloDatas">
-			<thead class="Table-head">
-				<tr class="Table-row">
-					<th class="Table-cell Table-cell--header u-tal">Name</th>
-					<th class="Table-cell Table-cell--header">Date</th>
-					<th class="Table-cell Table-cell--header">Url</th>
-					<th class="Table-cell Table-cell--header u-tal">Tag</th>
-					<th class="Table-cell Table-cell--header">Votes</th>
-				</tr>
-			</thead>
-			<tbody class="Table-body">
-				<% data.forEach(function(rowData){ %>
-				<tr>
-					<td class='Table-cell u-tal'><%= rowData.name %></td>
-					<td class='Table-cell u-tal'><%= rowData.dateLastActivity %></td>
-					<td class='Table-cell u-tal'><%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label === ('Improvement') || label === ('Feature'); }) %></td>
-					<td class='Table-cell'><%= Object.keys(rowData.idMembersVoted).length %></td>
-				</tr>
-  				<% }); %>
-			</tbody>
-		</table>
+		<div class="wisembly-pboard">
+
+			<h1>Wisembly Product Board</h1>
+			<table class="Table tablesorter" id="trelloDatas">
+				<thead class="Table-head">
+					<tr class="Table-row">
+						<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Feature</th>
+						<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Name</th>
+						<th class="Table-cell Table-cell--header"><i class="Icon Icon--results Icon--s"></i> Date</th>
+						<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Type</th>
+						<th class="Table-cell Table-cell--header"><i class="Icon Icon--results Icon--s"></i> Votes</th>
+						<th class="Table-cell Table-cell--header"><i class="Icon Icon--results Icon--s"></i> Priorité</th>
+					</tr>
+				</thead>
+				<tbody class="Table-body">
+					<% data.forEach(function(rowData){ %>
+					<tr>
+						<td class='Table-cell u-tal'><%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('Feature :')>-1; }) %></td>
+						<td class='Table-cell u-tal'><%= rowData.name %></td>
+						<td class='Table-cell u-tal'><%= rowData.dateLastActivity %></td>
+						<td class='Table-cell u-tal'><%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label === ('Improvement') || label === ('Feature'); }) %></td>
+						<td class='Table-cell'><%= Object.keys(rowData.idMembersVoted).length %></td>
+						<td class='Table-cell u-tal'><%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('(P')>-1; }) %></td>
+					</tr>
+					<% }); %>
+				</tbody>
+			</table>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="bower_components/tablesorter/dist/js/jquery.tablesorter.js"></script>
+		<script src="/bower_components/tablesorter/dist/js/jquery.tablesorter.js"></script>
+
+		<script src="/js/main.js"></script>
 	</body>
 </html>

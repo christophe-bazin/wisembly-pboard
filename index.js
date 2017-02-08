@@ -7,6 +7,12 @@ var app = express();
 app.use(express.static('views'));
 app.set('view engine', 'ejs');
 
+// assets
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+app.use('/fonts',  express.static(__dirname + '/fonts'));
+app.use('/css',  express.static(__dirname + '/css'));
+app.use('/js',  express.static(__dirname + '/js'));
+
 var key = "4ed75158af45aeeb2df0525d0af7e52c";
 var token = "159afbf454811016be493bce6978b565c52f0d2a6669a0d969e3db9d533ad060";
 var board = "9TgrKdIZ";
@@ -24,5 +30,5 @@ app.get('/', function (req, res) {
 });
 
 app.listen(process.env.PORT || 8080, function () {
-  console.log('Example app listening on port 3000!');
+  console.log('Example app listening on port 8080!');
 });
