@@ -74,7 +74,7 @@ function displayTrelloDatas(displayTrelloData) {
 			data: "key="+ key +"&token="+ token +"&value="+ idMemberVoted +"",
 			success: function(success) { 
 				$('.' + displayTrelloData.id + ' .vote').attr('class', 'Btn Btn--validate voted').find('.count').html(parseInt($('.' + displayTrelloData.id + ' .count').html())+1)	
-				$(document).ajaxStop(function() { location.reload(true); });
+				$(document).ajaxStop(function() { (location).reload(true); });
 				console.log("success") 
 			},
 			error: function(error){ console.log("error") },

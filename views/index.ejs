@@ -57,7 +57,7 @@
 							<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('Feature :')>-1; }) %>
 						</td>
 						<td class='Table-cell u-tal'>
-							<%= rowData.name %>
+							<a href="<%= rowData.url %>" target="_blank"><%= rowData.name %></a>
 						</td>
 						<td class='Table-cell u-tal'>
 							<%= rowData.dateLastActivity %>
