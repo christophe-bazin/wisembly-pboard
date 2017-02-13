@@ -28,11 +28,16 @@ Trello.authorize({
 $("#connectLink").click(function() {
 	Trello.authorize({
 		type: "popup",
-		success: onAuthorize
+		success: onAuthorize,
+		scope: { read: true, write: true },
 	});
 });
 
 $("#disconnect").click(logout);
+
+var getCards = function() {
+
+};
 
 var key = "4ed75158af45aeeb2df0525d0af7e52c";
 var token = "159afbf454811016be493bce6978b565c52f0d2a6669a0d969e3db9d533ad060";
@@ -63,7 +68,6 @@ function displayTrelloDatas(displayTrelloData) {
 
 	$a = displayTrelloData.idMembersVoted // Liste des votants sur trello 
 	$b = idMemberVoted // Mon id
-	console.log("Liste :", $a, "Mon id :", $b)
 
 	if ($a.indexOf($b) !== -1) {
 		$('.' + displayTrelloData.id + ' .vote').attr('class', 'Btn Btn--validate voted')
@@ -72,7 +76,7 @@ function displayTrelloDatas(displayTrelloData) {
 	$('.' + displayTrelloData.id + ' .vote').click(function() {
 		$.ajax({
 			type: 'POST',
-			data: "key="+ key +"&token="+ token +"&value="+ idMemberVoted +"",
+			data: "key="+ key +"&token="+ (Trello.token() || token) +"&value="+ idMemberVoted +"",
 			success: function(success) { 
 				$('.' + displayTrelloData.id + ' .vote').attr('class', 'Btn Btn--validate voted').find('.count').html(parseInt($('.' + displayTrelloData.id + ' .count').html())+1)	
 				$(document).ajaxStop(function() { (location).reload(true); });
@@ -87,7 +91,7 @@ function displayTrelloDatas(displayTrelloData) {
 	$('.' + displayTrelloData.id + ' .voted').click(function() {
 		$.ajax({
 			type: 'DELETE',
-			data: "key="+ key +"&token="+ token +"&value="+ idMemberVoted +"",
+			data: "key="+ key +"&token="+ (Trello.token() || token) +"&value="+ idMemberVoted +"",
 			success: function(success) { 
 				$('.' + displayTrelloData.id + ' .voted').attr('class', 'Btn vote').find('.count').html(parseInt($('.' + displayTrelloData.id + ' .count').html())-1)	
 				$(document).ajaxStop(function() { location.reload(true); });
