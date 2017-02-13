@@ -15,7 +15,31 @@
 
 		<div class="wisembly-pboard">
 
-			<h1>Wisembly Product Board</h1>
+			<header>
+				<h1>Wisembly Product Board</h1>
+				
+				<div class="login">
+					<div id="loggedout">
+						<a id="connectLink" class="Btn Btn--validate" href="#">Se connecter avec Trello</a>
+					</div>
+
+					<div id="loggedin" style="display: none;">
+						<div id="disconnect">
+							<a class="Btn Btn--status" href="#">Se déconnecter</a>
+						</div>
+						<div id="output"></div>
+					</div>
+				</div>
+			</header>
+
+			<hr />
+
+			<div class="Grid u-mgb--m">
+				<div class="Grid-cell Grid-cell--4">
+					<input class="Input" type="text" placeholder="Search..." id="search_field">
+				</div>
+			</div>
+
 			<table class="Table tablesorter" id="trelloDatas">
 				<thead class="Table-head">
 					<tr class="Table-row">
@@ -29,13 +53,28 @@
 				</thead>
 				<tbody class="Table-body">
 					<% data.forEach(function(rowData){ %>
-					<tr>
-						<td class='Table-cell u-tal'><%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('Feature :')>-1; }) %></td>
-						<td class='Table-cell u-tal'><%= rowData.name %></td>
-						<td class='Table-cell u-tal'><%= rowData.dateLastActivity %></td>
-						<td class='Table-cell u-tal'><%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label === ('Improvement') || label === ('Feature'); }) %></td>
-						<td class='Table-cell'><%= Object.keys(rowData.idMembersVoted).length %></td>
-						<td class='Table-cell u-tal'><%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('(P')>-1; }) %></td>
+					<tr class="<%= rowData.id %>">
+						<td class='Table-cell u-tal'>
+							<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('Feature :')>-1; }) %>
+						</td>
+						<td class='Table-cell u-tal'>
+							<%= rowData.name %>
+						</td>
+						<td class='Table-cell u-tal'>
+							<%= rowData.dateLastActivity %>
+						</td>
+						<td class='Table-cell u-tal'>
+							<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label === ('Improvement') || label === ('Feature'); }) %>								
+						</td>
+						<td class='Table-cell' style="width: 100px">
+							<button type="button" class="Btn vote">
+								<i class="Btn-icon Icon Icon--like"></i> 
+								<span class="count"><%= Object.keys(rowData.idMembersVoted).length %></span>
+							</button>
+						</td>
+						<td class='Table-cell u-tal'>
+							<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('(P')>-1; }) %>
+						</td>
 					</tr>
 					<% }); %>
 				</tbody>
@@ -43,7 +82,7 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="/bower_components/tablesorter/dist/js/jquery.tablesorter.js"></script>
-
+		<script src="https://api.trello.com/1/client.js?key=4ed75158af45aeeb2df0525d0af7e52c"></script>
 		<script src="/js/main.js"></script>
 	</body>
 </html>

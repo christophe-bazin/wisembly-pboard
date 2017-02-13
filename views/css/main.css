@@ -8,3 +8,8 @@ thead {
 	background-color: #a1a9ae;
 	color: #fff;
 }
+
+body {
+    font-family: arial;
+    font-size: 12px;
+}
