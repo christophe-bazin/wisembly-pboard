@@ -13,3 +13,11 @@ body {
     font-family: arial;
     font-size: 12px;
 }
+
+header {
+	margin-bottom: 40px
+}
+
+.login {
+	float: right;
+}

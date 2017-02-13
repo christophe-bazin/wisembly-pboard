@@ -18,27 +18,26 @@
 			<header>
 				<h1>Wisembly Product Board</h1>
 				
-				<div class="login">
-					<div id="loggedout">
-						<a id="connectLink" class="Btn Btn--validate" href="#">Se connecter avec Trello</a>
+				<div class="Grid Grid--gutters">
+					<div class="Grid-cell Grid-cell--6">
+						<input class="Input" type="text" placeholder="Search..." id="search_field">
 					</div>
+					<div class="Grid-cell Grid-cell--6">
+						<div class="login">
+							<div id="loggedout">
+								<a id="connectLink" class="Btn Btn--validate" href="#">Se connecter avec Trello</a>
+							</div>
 
-					<div id="loggedin" style="display: none;">
-						<div id="disconnect">
-							<a class="Btn Btn--status" href="#">Se déconnecter</a>
+							<div id="loggedin" style="display: none;">
+								<div id="disconnect">
+									<a class="Btn Btn--status" href="#">Se déconnecter</a>
+								</div>
+								<div id="output"></div>
+							</div>
 						</div>
-						<div id="output"></div>
 					</div>
 				</div>
 			</header>
-
-			<hr />
-
-			<div class="Grid u-mgb--m">
-				<div class="Grid-cell Grid-cell--4">
-					<input class="Input" type="text" placeholder="Search..." id="search_field">
-				</div>
-			</div>
 
 			<table class="Table tablesorter" id="trelloDatas">
 				<thead class="Table-head">
