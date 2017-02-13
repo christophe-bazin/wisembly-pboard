@@ -63,6 +63,7 @@ function displayTrelloDatas(displayTrelloData) {
 
 	$a = displayTrelloData.idMembersVoted // Liste des votants sur trello 
 	$b = idMemberVoted // Mon id
+	console.log("Liste :", $a, "Mon id :", $b)
 
 	if ($a.indexOf($b) !== -1) {
 		$('.' + displayTrelloData.id + ' .vote').attr('class', 'Btn Btn--validate voted')
