@@ -43,8 +43,9 @@
 				<thead class="Table-head">
 					<tr class="Table-row">
 						<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Feature</th>
+						<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Sub feature</th>
 						<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Name</th>
-						<th class="Table-cell Table-cell--header"><i class="Icon Icon--results Icon--s"></i> Date</th>
+						<th class="Table-cell Table-cell--header"><i class="Icon Icon--results Icon--s"></i> Interface</th>
 						<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Type</th>
 						<th class="Table-cell Table-cell--header"><i class="Icon Icon--results Icon--s"></i> Votes</th>
 						<th class="Table-cell Table-cell--header"><i class="Icon Icon--results Icon--s"></i> Priorité</th>
@@ -53,14 +54,17 @@
 				<tbody class="Table-body">
 					<% data.forEach(function(rowData){ %>
 					<tr class="<%= rowData.id %>">
-						<td class='Table-cell u-tal'>
+						<td class='Table-cell u-tal <%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf("Feature :")>-1; }) %>'>
 							<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('Feature :')>-1; }) %>
+						</td>
+						<td class='Table-cell u-tal <%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf("Feature :")>-1; }) %>'>
+							<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('Sub feature')>-1; }) %>
 						</td>
 						<td class='Table-cell u-tal'>
 							<a href="<%= rowData.url %>" target="_blank"><%= rowData.name %></a>
 						</td>
-						<td class='Table-cell u-tal'>
-							<%= rowData.dateLastActivity %>
+						<td class='Table-cell u-tal <%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf("Feature :")>-1; }) %>'>
+							<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('Interface :')>-1; }) %>
 						</td>
 						<td class='Table-cell u-tal'>
 							<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label === ('Improvement') || label === ('Feature'); }) %>								
