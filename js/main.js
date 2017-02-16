@@ -1,5 +1,6 @@
 // TableSorter config
-$("#trelloDatas").tablesorter( {sortList: [[4,1], [5,1]]} ); 
+$("#trelloDatas").tablesorter( {sortList: [[5,1], [0,1]]} ); 
+
 
 // Trello authorize (with client.js)
 var onAuthorize = function() {
@@ -31,6 +32,7 @@ $("#connectLink").click(function() {
 	});
 });
 $("#disconnect").click(logout);
+
 
 // Vote function
 $.getScript('js/trello.js', function() {
