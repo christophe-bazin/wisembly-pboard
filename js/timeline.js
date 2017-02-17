@@ -24,7 +24,7 @@ function handleQueryResponse(response) {
 		hAxis: {
 			format: ('MMM d')
 		},
-		height: ('800')
+		height: ('500')
 	};
 
 	chart.draw(data, options);
