@@ -18,15 +18,19 @@
 			<header>
 				<div class="Tabs Tabs--s">
 					<a class="Tab" aria-selected="true" data-tab="tab-1">
-						Trello
+						Roadmap
 					</a>
 					<a class="Tab" aria-selected="false" data-tab="tab-2">
-						Roadmap
+						Trello
 					</a>
 				</div>
 			</header>
 
 			<div id="tab-1" class="tab-content current">
+				<div id="timeline" class="roadmap"></div>
+			</div>
+
+			<div id="tab-2" class="tab-content">
 				<div class="loginComponent Grid Grid--gutters">
 					<div class="Grid-cell Grid-cell--6">
 						<input class="Input" type="text" placeholder="Search..." id="search_field">
@@ -90,9 +94,6 @@
 						<% }); %>
 					</tbody>
 				</table>
-			</div>
-			<div id="tab-2" class="tab-content">
-				<div id="timeline" class="roadmap"></div>
 			</div>
 
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
