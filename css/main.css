@@ -15,10 +15,31 @@ body {
     background-color: #fff;
 }
 
-header {
+.loginComponent {
 	margin-bottom: 40px
 }
 
 .login {
 	float: right;
+}
+
+.List58a5c08868038bf35b2df6f6 {
+	display: none;
+}
+
+.Tabs {
+	margin-bottom: 20px
+}
+
+.tab-content{
+	display: none;
+}
+
+.tab-content.current{
+	display: inherit;
+}
+
+.roadmap {
+	width: 100%;
+	height: 100%;
 }

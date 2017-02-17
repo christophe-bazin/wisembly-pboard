@@ -16,7 +16,18 @@
 		<div class="wisembly-pboard">
 
 			<header>
-				<div class="Grid Grid--gutters">
+				<div class="Tabs Tabs--s">
+					<a class="Tab" aria-selected="true" data-tab="tab-1">
+						Trello
+					</a>
+					<a class="Tab" aria-selected="false" data-tab="tab-2">
+						Roadmap
+					</a>
+				</div>
+			</header>
+
+			<div id="tab-1" class="tab-content current">
+				<div class="loginComponent Grid Grid--gutters">
 					<div class="Grid-cell Grid-cell--6">
 						<input class="Input" type="text" placeholder="Search..." id="search_field">
 					</div>
@@ -35,55 +46,60 @@
 						</div>
 					</div>
 				</div>
-			</header>
 
-			<table class="Table tablesorter" id="trelloDatas">
-				<thead class="Table-head">
-					<tr class="Table-row">
-						<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Feature</th>
-						<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Sub feature</th>
-						<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Name</th>
-						<th class="Table-cell Table-cell--header"><i class="Icon Icon--results Icon--s"></i> Interface</th>
-						<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Type</th>
-						<th class="Table-cell Table-cell--header"><i class="Icon Icon--results Icon--s"></i> Votes</th>
-						<th class="Table-cell Table-cell--header"><i class="Icon Icon--results Icon--s"></i> Priorité</th>
-					</tr>
-				</thead>
-				<tbody class="Table-body">
-					<% data.forEach(function(rowData){ %>
-					<tr class="<%= rowData.id %>">
-						<td class='Table-cell u-tal <%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf("Feature :")>-1; }) %>'>
-							<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('Feature :')>-1; }) %>
-						</td>
-						<td class='Table-cell u-tal <%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf("Feature :")>-1; }) %>'>
-							<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('Sub feature')>-1; }) %>
-						</td>
-						<td class='Table-cell u-tal'>
-							<a href="<%= rowData.url %>" target="_blank"><%= rowData.name %></a>
-						</td>
-						<td class='Table-cell u-tal <%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf("Feature :")>-1; }) %>'>
-							<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('Interface :')>-1; }) %>
-						</td>
-						<td class='Table-cell u-tal'>
-							<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label === ('Improvement') || label === ('Feature'); }) %>								
-						</td>
-						<td class='Table-cell' style="width: 100px">
-							<button type="button" class="Btn vote">
-								<i class="Btn-icon Icon Icon--like"></i> 
-								<span class="count"><%= Object.keys(rowData.idMembersVoted).length %></span>
-							</button>
-						</td>
-						<td class='Table-cell u-tal'>
-							<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('(P')>-1; }) %>
-						</td>
-					</tr>
-					<% }); %>
-				</tbody>
-			</table>
+				<table class="Table tablesorter" id="trelloDatas">
+					<thead class="Table-head">
+						<tr class="Table-row">
+							<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Feature</th>
+							<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Sub feature</th>
+							<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Name</th>
+							<th class="Table-cell Table-cell--header"><i class="Icon Icon--results Icon--s"></i> Interface</th>
+							<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Type</th>
+							<th class="Table-cell Table-cell--header"><i class="Icon Icon--results Icon--s"></i> Votes</th>
+							<th class="Table-cell Table-cell--header"><i class="Icon Icon--results Icon--s"></i> Priorité</th>
+						</tr>
+					</thead>
+					<tbody class="Table-body">
+						<% data.forEach(function(rowData){ %>
+						<tr class="<%= rowData.id %> List<%= rowData.idList %>">
+							<td class='Table-cell u-tal <%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf("Feature :")>-1; }) %>'>
+								<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('Feature :')>-1; }) %>
+							</td>
+							<td class='Table-cell u-tal <%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf("Feature :")>-1; }) %>'>
+								<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('Sub feature')>-1; }) %>
+							</td>
+							<td class='Table-cell u-tal'>
+								<a href="<%= rowData.url %>" target="_blank"><%= rowData.name %></a>
+							</td>
+							<td class='Table-cell u-tal <%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf("Feature :")>-1; }) %>'>
+								<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('Interface :')>-1; }) %>
+							</td>
+							<td class='Table-cell u-tal'>
+								<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label === ('Improvement') || label === ('Feature'); }) %>								
+							</td>
+							<td class='Table-cell' style="width: 100px">
+								<button type="button" class="Btn vote">
+									<i class="Btn-icon Icon Icon--like"></i> 
+									<span class="count"><%= Object.keys(rowData.idMembersVoted).length %></span>
+								</button>
+							</td>
+							<td class='Table-cell u-tal'>
+								<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('(P')>-1; }) %>
+							</td>
+						</tr>
+						<% }); %>
+					</tbody>
+				</table>
+			</div>
+			<div id="tab-2" class="tab-content">
+				<div id="timeline" class="roadmap"></div>
+			</div>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="/bower_components/tablesorter/dist/js/jquery.tablesorter.js"></script>
-		<script src="https://api.trello.com/1/client.js?key=4ed75158af45aeeb2df0525d0af7e52c"></script>
-		<script src="/js/main.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="/bower_components/tablesorter/dist/js/jquery.tablesorter.js"></script>
+		<script type="text/javascript" src="https://api.trello.com/1/client.js?key=4ed75158af45aeeb2df0525d0af7e52c"></script>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript" src="/js/main.js"></script>
+		<script type="text/javascript" src="/js/timeline.js"></script>
 	</body>
 </html>

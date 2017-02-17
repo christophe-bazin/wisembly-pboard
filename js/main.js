@@ -112,3 +112,16 @@ $('#search_field').on('keyup', function() {
 	});
 
 });
+
+
+// Toggle tabs
+$('.Tabs a.Tab').click(function(){
+	var tab_id = $(this).attr('data-tab');
+
+	$('.Tabs a.Tab').attr('aria-selected', 'false');
+	$('.tab-content').removeClass('current');
+
+	$(this).addClass('current');
+	$(this).attr('aria-selected', 'true');
+	$("#"+tab_id).addClass('current');
+})
