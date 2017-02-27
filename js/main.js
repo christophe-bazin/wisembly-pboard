@@ -1,5 +1,5 @@
 // TableSorter config
-$("#trelloDatas").tablesorter( {sortList: [[5,1], [0,1]]} ); 
+$("#trelloDatas").tablesorter( {sortList: [[4,1], [0,1]]} ); 
 
 
 // Trello authorize (with client.js)
