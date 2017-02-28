@@ -1,5 +1,6 @@
 var request = require('request');
 var ejs = require('ejs');
+var moment = require('moment');
 
 var express = require('express');
 var app = express();
@@ -24,7 +25,7 @@ app.get('/', function (req, res) {
 /*  res.send('Hello World!');*/
 	request.get(trelloUrl, function(error, response, body) {
 		if (!error && response.statusCode == 200) {
-			res.render('index', { data: JSON.parse(body) }) // Show the HTML for the Google homepage. 
+			res.render('index', { data: JSON.parse(body), moment:moment }) // Show the HTML for the Google homepage. 
 		}
 	});
 });

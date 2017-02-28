@@ -9,7 +9,6 @@
 
 		<link rel="stylesheet" href="css/tapestry.css" type="text/css">
 		<link rel="stylesheet" href="css/main.css" type="text/css">
-
 	</head>
 	<body>
 
@@ -70,7 +69,7 @@
 								<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('F#')>-1; }) %>
 							</td>
 							<td class='Table-cell u-tal'>
-								<%=	new Date(1000*parseInt(rowData.id.substring(0,8),16)); %>
+								<%=	moment(new Date(1000*parseInt(rowData.id.substring(0,8),16))).format('YYYY-MM-DD'); %>
 							</td>
 							<td class='Table-cell u-tal'>
 								<a href="<%= rowData.url %>" target="_blank"><%= rowData.name %></a>
