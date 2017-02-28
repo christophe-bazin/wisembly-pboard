@@ -69,7 +69,7 @@
 								<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('F#')>-1; }) %>
 							</td>
 							<td class='Table-cell u-tal'>
-								<%=	moment(new Date(1000*parseInt(rowData.id.substring(0,8),16))).format('YYYY-MM-DD'); %>
+								<%=	moment(new Date(1000*parseInt(rowData.id.substring(0,8),16))).format('DD/MM/YYYY'); %>
 							</td>
 							<td class='Table-cell u-tal'>
 								<a href="<%= rowData.url %>" target="_blank"><%= rowData.name %></a>
