@@ -17,7 +17,7 @@ var key = "4ed75158af45aeeb2df0525d0af7e52c";
 var token = "159afbf454811016be493bce6978b565c52f0d2a6669a0d969e3db9d533ad060";
 var board = "9TgrKdIZ";
 
-var trelloUrl = "https://api.trello.com/1/boards/"+ board +"/cards?key="+ key +"&token="+ token +"&fields=idList,url,name,shortLink,idMembersVoted,labels,dateLastActivity";
+var trelloUrl = "https://api.trello.com/1/boards/"+ board +"/cards?key="+ key +"&token="+ token +"&fields=id,idList,url,name,shortLink,idMembersVoted,labels,dateLastActivity";
 console.log("Sortie de l'API Trello", trelloUrl);
 
 app.get('/', function (req, res) {

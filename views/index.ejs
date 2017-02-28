@@ -55,6 +55,7 @@
 					<thead class="Table-head">
 						<tr class="Table-row">
 							<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Feature</th>
+							<th class="Table-cell Table-cell--header"><i class="Icon Icon--results Icon--s"></i> Création</th>
 							<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Name</th>
 							<th class="Table-cell Table-cell--header"><i class="Icon Icon--results Icon--s"></i> Interface</th>
 							<th class="Table-cell Table-cell--header u-tal"><i class="Icon Icon--results Icon--s"></i> Type</th>
@@ -69,9 +70,12 @@
 								<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('F#')>-1; }) %>
 							</td>
 							<td class='Table-cell u-tal'>
+								<%=	new Date(1000*parseInt(rowData.id.substring(0,8),16)); %>
+							</td>
+							<td class='Table-cell u-tal'>
 								<a href="<%= rowData.url %>" target="_blank"><%= rowData.name %></a>
 							</td>
-							<td class='Table-cell u-tal <%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf("Feature :")>-1; }) %>'>
+							<td class='Table-cell u-tal <%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf("Interface :")>-1; }) %>'>
 								<%= rowData.labels.map(function(label) { return label.name }).filter(function (label) {return label.indexOf('Interface :')>-1; }) %>
 							</td>
 							<td class='Table-cell u-tal'>
